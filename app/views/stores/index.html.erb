@@ -1,0 +1,22 @@
+ <%= link_to 'list', list_admins_path %>
+ <table>
+  <% for product in @products %>
+    <tr>
+    <td><img style= "width: 100px; height: 100px" src="<%= product.image_url %>"/></td>
+
+      <td width="450">
+        <h3><%=h product.title %></h3>
+        <small><%= product.description %></small>
+        <br/>
+        <strong>$<%= sprintf("%0.2f", product.price) %>
+        <br/>
+      </td>
+    </tr>
+    <tr><td colspan="2"><hr/></td></tr>
+  <% end %>
+  <% if flash[:notice] %>
+    <div id="notice"><%= flash[:notice] %></div>
+  <% end %>
+</table>
+<br>
+<%= link_to 'Back', products_path %>
